@@ -1,0 +1,34 @@
+import pandas as pd #this is how I usually import pandas
+
+month_wise_df=pd.read_csv('month_wise.csv')
+month_wise_df = pd.DataFrame({'Domestic_Overnight_Visitors': month_wise_df['Domestic_Overnight_Visitors'].array,
+                   'Foreign_Overnight_Visitors': month_wise_df['Foreign_Overnight_Visitors'].array,
+                   'Day_Visitors':month_wise_df['Day_Visitors'].array},index=month_wise_df['Month'].array)
+month_wise_df.plot.bar(rot=0)
+# month_wise_df.plot(x='Month',y='Domestic_Overnight_Visitors')
+# month_wise_df.plot(x='Month',y='Foreign_Overnight_Visitors')
+# month_wise_df.plot(x='Month',y='Day_Visitors')
+#
+over_night_bed_stay=pd.read_csv('over_night_and_bed_stay.csv')
+over_night_bed_stay = pd.DataFrame({'Domestic_checked_in': over_night_bed_stay['Domestic_checked_in'].array,
+                   'Foreign_checked_in': over_night_bed_stay['Foreign_checked_in'].array,
+                   'Domestic_bed_nights':over_night_bed_stay['Domestic_bed_nights'].array,
+                   'Foreign_bed_nights':over_night_bed_stay['Foreign_bed_nights'].array},index=over_night_bed_stay['Centers'].array)
+over_night_bed_stay.plot.bar(rot=0)
+# over_night_bed_stay.plot(grid  =True,x='Centers',y='Domestic_checked_in')
+# over_night_bed_stay.plot(grid  =True,x='Centers',y='Foreign__checked_in')
+# over_night_bed_stay.plot(grid=True,x='Centers',y='Domestic_bed_nights')
+# over_night_bed_stay.plot(grid=True,x='Centers',y='Foreign_bed_nights')
+#
+#
+accomodation_catagory=pd.read_csv('Accomodation_catagory.csv')
+accomodation_catagory_df = pd.DataFrame({'Starred': accomodation_catagory['Starred'].array,
+                   'Unstarred': accomodation_catagory['Unstarred'].array,
+                   'Others':accomodation_catagory['Others'].array}, index=accomodation_catagory['Center'].array)
+accomodation_catagory_df.plot.bar(rot=0)
+#
+food_rating_dom_overnight=pd.read_csv('food_rating_dom_overnight')
+accomodation_catagory_df = pd.DataFrame({'Excellent': food_rating_dom_overnight['Excellent'].array,
+                   'Good': food_rating_dom_overnight['Good'].array,
+                   'Poor':food_rating_dom_overnight['Poor'].array}, index=food_rating_dom_overnight['Center'].array)
+accomodation_catagory_df.plot.bar(rot=0)
